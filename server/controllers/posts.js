@@ -7,7 +7,7 @@ import router from "../routes/posts.js";
 export const getPosts=async(req,res)=>{
     const {page}=req.query;
     try{
-        const Limit=8;
+        const Limit=15;
         const startIndex=(Number(page)-1)*Limit;
         const total=await PostMessage.countDocuments({});
         const posts= await PostMessage.find().sort({_id:-1}).limit(Limit).skip(startIndex);
@@ -20,13 +20,13 @@ export const getPosts=async(req,res)=>{
     }
 }
 export const getPostsBySearch=async(req,res)=>{
-    const { searchQuery, tags } = req.query;
+    const { searchQuery,searchYear, tags } = req.query;
 
     try {
         const title = new RegExp(searchQuery, "i");
-
+        
     
-        const posts = await PostMessage.find({ $or: [ { title }, { tags: { $in: tags.split(',') } } ]});
+        const posts = await PostMessage.find({ $or: [ { title },{searchYear}, { tags: { $in: tags.split(',') } } ]});
 
         res.json({ data: posts });
     } catch (error) {    
