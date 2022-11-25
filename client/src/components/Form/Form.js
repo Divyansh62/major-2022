@@ -14,6 +14,7 @@ const Form=({ currentId, setCurrentId})=>{
         title:'',
         message:'',
         selectedFile:'',
+        year:'',
         tags:''
     });
 
@@ -37,6 +38,7 @@ const Form=({ currentId, setCurrentId})=>{
             title:'',
             message:'',
             selectedFile:'',
+            year:'',
             tags:''
         });
       };
@@ -70,6 +72,7 @@ const Form=({ currentId, setCurrentId})=>{
         <Typography variant="h6">{currentId?'Edit':'Post'} moment</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e)=>setPostData({ ...postData, title: e.target.value})} />
         <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message} onChange={(e)=>setPostData({ ...postData, message: e.target.value})} />
+        <TextField name="year" variant="outlined" label="Enter Year" fullWidth value={postData.year} onChange={(e)=>setPostData({ ...postData, year: e.target.value})} />
         <TextField name="tags" variant="outlined" label="tags" fullWidth value={postData.tags} onChange={(e)=>setPostData({ ...postData, tags: e.target.value.split(',')})} />
         <div className={classes.fileInput} >
         <FileBase 
@@ -77,8 +80,6 @@ const Form=({ currentId, setCurrentId})=>{
         multiple={false}
         onDone={({base64})=>setPostData({...postData,selectedFile:base64}) }
         />
-        
-        
         </div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
         <Button variant="outlined" color="secondary" size="small"  onClick={clear} fullWidth>Clear</Button>
