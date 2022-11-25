@@ -5,7 +5,9 @@ const postSchema=mongoose.Schema({
     message: String,
     name:String,
     creator: String,
+    year: String,
     tags: [String],
+    
     // Doc: Document,
     selectedFile: String,
     likes:{
