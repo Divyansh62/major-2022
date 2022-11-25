@@ -25,13 +25,14 @@ const Home = () => {
     const searchQuery=query.get('searchQuery');
     
     const [search, setSearch] = useState('');
+    const [searchyear,setSearchyear]=useState('');
     const [tags, setTags] = useState([]);
   
 
     const searchPost=()=>{
-      if(search.trim()||tags){
-        dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
-        navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+      if(search.trim()||searchyear.trim()||tags){
+        dispatch(getPostsBySearch({ search,searchyear, tags: tags.join(',') }));
+        navigate(`/posts/search?searchQuery=${search ||'none'}&searchYear=${searchyear||'none'}&tags=${tags.join(',')}`);
       }else{
         navigate('/')
       }
@@ -55,9 +56,15 @@ const Home = () => {
         <Grid item xs={12} sm={6} md={9}>
         <Posts setCurrentId={setCurrentId} />
         </Grid>
+
+        
         <Grid item xs={12} sm={6} md={3}>
         <AppBar className={classes.appBarSearch} position="static" color="inherit">
         <TextField name='search' variant='outlined' label="Search Moment" onKeyPress={handleKeyPress} fullWidth value={search} onChange={(e)=>setSearch(e.target.value)}/>
+        <br></br>
+        <TextField name='searchyear' variant='outlined' label="Search For Year" onKeyPress={handleKeyPress} fullWidth value={searchyear} 
+        onChange={(e)=>setSearchyear(e.target.value)}/>
+        
         <ChipInput 
         style={{margin:'10px 0'}}
         value={tags}
