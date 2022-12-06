@@ -17,7 +17,7 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '15px',
+    borderRadius: '5px',
     height: '100%',
     position: 'relative',
   },
@@ -51,8 +51,10 @@ export default makeStyles({
   },
   buttonSubmit: {
     marginBottom: 10,
-    padding:6,
-    backgroundColor:'#f64040',
-    color:'white',
+    padding:4,
+    backgroundColor:'white',
+    color:'black',
+    border: '1px solid black',
+    boxShadow:'0px 0px 0px',
   },
 });

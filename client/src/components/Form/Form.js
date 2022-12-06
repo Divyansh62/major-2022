@@ -58,7 +58,7 @@ const Form=({ currentId, setCurrentId})=>{
         return(
           <Paper className={classes.paper}>
           <Typography variant="h6" align="center">
-          !You need to sign in first to share your memory. 
+           Please Sign in! 
           </Typography>
           </Paper>
         )
@@ -67,7 +67,7 @@ const Form=({ currentId, setCurrentId})=>{
     return(
         <Paper className={classes.paper} elevation={6}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId?'Edit':'Post'} moment</Typography>
+        <Typography variant="h6">{currentId?'Edit':'Post'} Notes</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e)=>setPostData({ ...postData, title: e.target.value})} />
         <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message} onChange={(e)=>setPostData({ ...postData, message: e.target.value})} />
         <TextField name="tags" variant="outlined" label="tags" fullWidth value={postData.tags} onChange={(e)=>setPostData({ ...postData, tags: e.target.value.split(',')})} />

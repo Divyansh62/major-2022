@@ -2,15 +2,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
-
+  buttonused:{
+    backgroundColor:'#04AA6D',
+    color:'#ffffff',
+  },
   appBar: {
-    borderRadius: 15,
-    margin: '30px 0',
+    borderRadius: 5,
+    // margin: '30px 0',
+    // border:'1px solid black',
+    marginBottom:'30px',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    boxShadow:'0px 0px 0px !important',
+    padding: '4px 0px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
@@ -22,7 +28,8 @@ export default makeStyles((theme) => ({
     fontWeight: 300,
   },
   image: {
-    marginLeft: '10px',
+    marginLeft: '5px',
+    marginRight:'5px',
     marginTop: '5px',
   },
   toolbar: {
@@ -56,6 +63,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
+  
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],

@@ -25,7 +25,7 @@ const Home = () => {
     const searchQuery=query.get('searchQuery');
     
     const [search, setSearch] = useState('');
-    const [tags, setTags] = useState([]);
+    const [tags, setTags] = useState([]);  
   
 
     const searchPost=()=>{
@@ -57,7 +57,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
         <AppBar className={classes.appBarSearch} position="static" color="inherit">
-        <TextField name='search' variant='outlined' label="Search Moment" onKeyPress={handleKeyPress} fullWidth value={search} onChange={(e)=>setSearch(e.target.value)}/>
+        <TextField name='search' variant='outlined' label="Search Notes" onKeyPress={handleKeyPress} fullWidth value={search} onChange={(e)=>setSearch(e.target.value)}/>
         <ChipInput 
         style={{margin:'10px 0'}}
         value={tags}
@@ -66,7 +66,7 @@ const Home = () => {
         label="Search Tags"
         variant="outlined"
         />
-        <Button onClick={searchPost} className={classes.secondary} variant="contained" color="secondary">Search</Button>
+        <Button onClick={searchPost} className={classes.buttonused} variant="contained" >Search</Button>
         </AppBar>
 
         <Form currentId={currentId} setCurrentId={setCurrentId}/>
